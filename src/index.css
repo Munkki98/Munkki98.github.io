@@ -5,7 +5,8 @@
   --dark-blue: #14248a;
   --light-blue: #1e91d6;
   --dark-white: #f3f3f3;
-  --gray: #4c4c4c;
+  --gray: #2a2b2e;
+  --light-gray: #7c868f;
 }
 
 /* ---------------------------------------------------
@@ -13,48 +14,16 @@
 ----------------------------------------------------- */
 * {
   box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+body {
+  margin: auto;
 }
 main {
   background-color: var(--dark-white);
 }
-
-/* ---------------------------------------------------
-    TOP NAVIGATION BAR
------------------------------------------------------ */
-.topnav {
-  position: fixed;
-  width: 100%;
-  overflow: hidden;
-  background-color: white;
-  /* opacity: 0.5; */
-  padding: 20px 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-.topnav button {
-  float: left;
-  font-size: 20px;
-  text-decoration: none;
-  color: #2a2b2e;
-  background-color: transparent;
-  border: none;
-}
-.nav-menu-button {
-  display: none;
-}
-.nav-right {
-  float: right;
-}
-.nav-right button {
-  margin-left: 30px;
-}
-
-@media screen and (max-width: 1000px) {
-  .nav-menu-button {
-    display: block;
-  }
-  .nav-right {
-    display: none;
-  }
+.container {
+  padding: 0.01em 10%;
 }
 
 /* ---------------------------------------------------
@@ -75,28 +44,27 @@ header::after {
   display: table;
   clear: both;
 }
-header > div {
-  font-size: 4em;
-}
 header img {
   width: 300px;
   border-radius: 50%;
 }
 header h1 {
+  font-size: 4em;
   color: white;
   margin: 0 20px;
 }
+
 /* Responsive columns */
 @media screen and (max-width: 1000px) {
   header {
     display: grid;
   }
-  header > div {
+  header div {
     display: block;
     margin: auto;
   }
   header img {
-    margin-top: 150px;
+    margin-top: 100px;
   }
   .header-text {
     margin-top: 50px;
@@ -128,22 +96,28 @@ section h1 {
   border-bottom: var(--gray) solid 2px;
   color: var(--gray);
 }
-h6 {
-  margin-bottom: 5px !important;
+section h6 {
+  margin: 0;
   color: var(--gray);
+  font-size: 18px;
 }
 .blue {
   color: var(--light-blue);
 }
-p {
+section p {
   color: var(--gray);
   margin: auto;
+  font-size: 18px;
+}
+.space {
+  padding: 10px;
 }
 ul {
   list-style-type: square;
 }
 li {
   color: var(--gray);
+  font-size: 18px;
 }
 .no-border-bottom {
   border-bottom: none;
@@ -151,40 +125,36 @@ li {
 /* ---------------------------------------------------
     CONTACT AND FOOTER
 ----------------------------------------------------- */
-.bottom {
+footer {
   padding-top: 100px;
   /* background-image: linear-gradient(rgba(255, 255, 255, 0), #14248a); */
-  background-color: var(--light-blue);
+  background-color: var(--light-gray);
+  padding: 50px 0;
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 .contact {
   margin: 80px 0;
   border-bottom: none;
 }
-/* Float four columns side by side */
 .card-column {
   float: left;
   width: 25%;
   padding: 0 10px;
 }
-/* Remove extra left and right margins, due to padding */
 .card-row {
   margin: 0 -5px;
 }
-/* Clear floats after the columns */
+footer p {
+  color: var(--gray);
+  margin: auto;
+}
 .card-row::after {
   content: "";
   display: table;
   clear: both;
 }
-/* Responsive columns */
-@media screen and (max-width: 1000px) {
-  .card-column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-/* Style the counter cards */
 .card-content {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
@@ -192,50 +162,89 @@ li {
   background-color: white;
   white-space: nowrap;
 }
-hr {
+footer hr {
   width: 25%;
   margin: 20px auto !important;
 }
-footer {
-  padding: 50px;
-  color: white;
-  font-size: 20px;
-  text-align: center;
+@media screen and (max-width: 1400px) {
+  .card-column {
+    width: 50%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .card-column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
 }
 
 /* ---------------------------------------------------
-    SIDENAV STYLE
+    NAVIGATION
 ----------------------------------------------------- */
-.sidenav {
-  z-index: 1;
+nav {
   position: fixed;
-  min-width: 250px;
-  max-width: 250px;
-  height: 100%;
-  background: lightgray;
-  margin-left: -250px;
-  transition: all 0.5s;
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-.sidenav.is-open {
-  margin-left: 0;
-  transition: 0.5s;
-}
-.sidenav button {
+nav button {
+  float: left;
+  font-size: 23px;
+  text-decoration: none;
+  color: #2a2b2e;
   background-color: transparent;
   border: none;
-  color: #818181;
-  text-align: left;
-  font-size: 25px;
-  font-weight: 600;
-  margin: 5px 10px;
-  width: 100%;
+}
+.nav-items {
+  float: right;
+}
+nav li {
+  display: inline-block;
+  padding-right: 30px;
+  font-size: 23px;
+}
+.nav-menu-open {
+  display: none;
 }
 .close-button {
-  text-align: right !important;
-  width: 95% !important;
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .nav-menu-open {
+    display: block;
+    padding: 5px 0 0 5px;
+  }
+  .nav-items {
+    z-index: 1;
+    position: fixed;
+    min-width: 250px;
+    max-width: 250px;
+    height: 100%;
+    background: lightgray;
+    margin-left: -250px;
+    transition: all 0.5s;
+  }
+  .nav-items.is-open {
+    margin-left: 0;
+    transition: 0.5s;
+  }
+  nav li {
+    display: block;
+    padding-bottom: 20px;
+  }
+  .close-button {
+    display: block;
+    text-align: right !important;
+    width: 95% !important;
+    padding-top: 5%;
+  }
 }
 @media only screen and (max-width: 500px) {
-  .sidenav.is-open {
+  .nav-items.is-open {
     min-width: 100%;
     max-width: 100%;
     min-height: 100%;

@@ -1,34 +1,37 @@
-import React, { forwardRef } from "react"
-
-import { Container } from "reactstrap"
-
-const Home = forwardRef((props, ref) => {
-  const { ref1, ref2, ref3, ref4, ref5 } = ref.current
+function Home() {
   return (
     <main>
-      <header>
+      <header className="container">
         <div>
           <img alt="my profile pic" src={require("./images/profile_pic_square.jpg")} />
         </div>
         <div className="header-text">
-          <h1>Hi,</h1>
-          <h1>I am Martti Leskinen</h1>
+          <h1>
+            Hi, my name is <br /> Martti Leskinen
+          </h1>
         </div>
       </header>
 
-      <Container>
-        <section ref={ref1}>
+      <div className="container">
+        <section id="profile">
           <div className="h1-margin">
             <h1>Personal Profile</h1>
           </div>
           <p>
-            I am a friendly and considered person. I work well in a team as well as independently. I enjoy learning and trying new things and I am a
-            fast learner. If I start something I always see it through.
+            I am a test automation trainee with a strong interest in web and game development. I have a good understanding of Java concepts and best
+            practices, allowing me to create robust and efficient applications. My coursework has given me exposure to different programming paradigms
+            and problem-solving techniques, contributing to my ability to think critically and approach challenges from multiple angles.
+            <div className="space" />
+            While my current role as a test automation trainee focuses on ensuring software quality, my enthusiasm for web and game development
+            extends beyond my job responsibilities. I am continuously learning and exploring these areas, eager to apply my skills and contribute to
+            creating captivating digital experiences. As a test automation trainee, I understand the importance of attention to detail and the ability
+            to work within a team. I am a dedicated and collaborative individual, always ready to contribute my insights and support my colleagues. I
+            am comfortable working in Agile environments and familiar with tools such as JIRA and Jenkins.
           </p>
           <br />
         </section>
 
-        <section ref={ref3}>
+        <section id="experience">
           <div className="h1-margin">
             <h1>Work Experience</h1>
           </div>
@@ -55,7 +58,7 @@ const Home = forwardRef((props, ref) => {
           <br />
         </section>
 
-        <section ref={ref2}>
+        <section id="education">
           <div className="h1-margin">
             <h1>Academic History</h1>
           </div>
@@ -68,7 +71,7 @@ const Home = forwardRef((props, ref) => {
           <br />
         </section>
 
-        <section ref={ref4}>
+        <section id="skills">
           <div className="h1-margin">
             <h1>Skills</h1>
           </div>
@@ -100,11 +103,11 @@ const Home = forwardRef((props, ref) => {
           <p>- Quad bike course 9/2018</p>
           <br />
         </section>
-      </Container>
+      </div>
 
-      <div className="bottom">
-        <Container>
-          <div ref={ref5} className="card-row">
+      <footer>
+        <div className="container">
+          <div id="contact" className="card-row">
             <div className="card-column">
               <div className="card-content">
                 <p>Address</p>
@@ -117,7 +120,7 @@ const Home = forwardRef((props, ref) => {
               <div className="card-content">
                 <p>Email</p>
                 <hr />
-                <p>martti.leskinen@hotmail.fi</p>
+                <p>martti.leskinen@airbus.com</p>
               </div>
             </div>
 
@@ -139,11 +142,12 @@ const Home = forwardRef((props, ref) => {
               </div>
             </div>
           </div>
-        </Container>
-        <footer>© 2022 Martti Leskinen</footer>
-      </div>
+        </div>
+        <br />
+        <div>© 2022 Martti Leskinen</div>
+      </footer>
     </main>
   )
-})
+}
 
 export default Home
